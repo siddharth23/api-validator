@@ -1,0 +1,29 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+<form action="#" th:action="@{/}" th:object="${apiValidatorForm}" method="post">
+    <table>
+        <tr>
+            <td>URL:</td>
+            <td><input type="text" th:field="*{url}" /></td>
+            <td th:if="${#fields.hasErrors('url')}" th:errors="*{url}">URL Error</td>
+        </tr>
+        <tr>
+            <td>Method:</td>
+            <td><input type="text" th:field="*{method}" /></td>
+            <td th:if="${#fields.hasErrors('method')}" th:errors="*{method}">Name Error</td>
+        </tr>
+        <tr>
+            <td>Header:</td>
+            <td><input type="text" th:field="*{headerKey}" /></td>
+            <td><input type="text" th:field="*{headerValue}" /></td>
+            <td th:if="${#fields.hasErrors('headerKey')}" th:errors="*{headerKey}">Header Error</td>
+        </tr>
+        <tr>
+            <td><button type="submit">Submit</button></td>
+        </tr>
+    </table>
+</form>
+
+</body>
+</html>
